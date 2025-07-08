@@ -39,3 +39,10 @@ if uploaded_file:
         df = pd.DataFrame(lines, columns=["Verified Line"])
         csv = df.to_csv(index=False).encode("utf-8")
         st.download_button("📥 Download CSV", data=csv, file_name="cleaned_statement.csv", mime="text/csv")
+    st.markdown("---")
+    if st.checkbox("✅ I'm done, you can safely delete all uploaded and generated files"):
+        uploaded_file = None
+        images = []
+        lines.clear()
+        st.success("🧹 All files cleared from memory.")
+st.text("By harveyspecter67 (Vandit Bhaven Mehta) , Enjoy! ;)")
